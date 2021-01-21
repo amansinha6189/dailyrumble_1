@@ -26,15 +26,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '=%x!^vi)9k2suv)10cdg(_$l8u0!r3cgm91bw2%zh7+-vl*wr7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
+    'django.contrib.humanize',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

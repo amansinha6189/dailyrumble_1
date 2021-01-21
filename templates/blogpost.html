@@ -21,7 +21,7 @@
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/359f0d9154.js" crossorigin="anonymous"></script>
-    <title>GoalPost| Blog</title>
+    <title>dailyrumble | Blog | {{blog.title}}</title>
    
    
     <style>
@@ -123,7 +123,7 @@ height:80%;
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top opacity-0.5">
             <a class="navbar-brand" href="/">
 
-                Goalpost
+                DailyRumble
             </a>
             <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -347,6 +347,7 @@ height:80%;
         </div> {% endcomment %}
         <div class="col-md-11 text-white"> <i class="far fa-user"></i>
         <b> {{comment.user.username}} </b> at {{comment.timestamp | naturaltime}}
+        {% comment %} <b> {{comment.user.username}} </b> at {{comment.timestamp}} {% endcomment %}
         <div class="col-md-11"  >   {{comment.comment}} </div>
       
 
@@ -386,6 +387,7 @@ height:80%;
                         <div class="col-md-11">
                             <div class="col-md-11 "><i class="far fa-user"></i>
                                 <b> {{reply.user.username}} </b> <span class="badge badge-secondary ">{{reply.timestamp| naturaltime}}</span>
+                                {% comment %} <b> {{reply.user.username}} </b> <span class="badge badge-secondary ">{{reply.timestamp}}</span> {% endcomment %}
                                 <div class="col-md-11" >{{reply.comment}}</div>
                             </div>
                             <br>

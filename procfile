@@ -1,1 +1,1 @@
-web: gucorn CCMS.wsgi --logfile -
+web: gunicorn CCMS.wsgi --logfile -
