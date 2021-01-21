@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '=%x!^vi)9k2suv)10cdg(_$l8u0!r3cgm91bw2%zh7+-vl*wr7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'dailyrumble.herokuapp.com/']
 
 
 # Application definition
