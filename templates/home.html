@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+
+    
+body{
+    background:url('{% static 'img/1.jpg' %}') fixed center;
+    background-image: url('{% static 'img/1.jpg' %}');
+    width:100%;
+    background-size:100%;
+    background-attachment: fixed;
+    background-position: center;
+}
+@media (max-width:990px){
+    body{
+    background:url('{% static 'img/1.jpg' %}') fixed center;
+    background-image: url('{% static 'img/1.jpg' %}');
+    width:100%;
+    background-attachment: fixed;
+    background-position: center;
+    }
+} 
+
+        .navabar{
+          overflow: hidden;
+          position: fixed; /* Set the navbar to fixed position */
+          top: 0; /* Position the navbar at the top of the page */
+          width: 100%; /* Full width */
+          
+        }
+        
+        .navbar li a:hover{
+            color: orange;
+
+        }
+        .navbar li a:ctive{
+            color: orange;
+
+        }
+        
+        .navbar-brand{
+          padding: 3px 3px;
+            text-decoration: none;
+            color: white;
+            margin: 3px 3px;
+        }
+        .navbar-brand a{
+          color: orange;
+        }
+
+        
+        
+    
+{% endblock css %}
+
+{% block body %}
+<body class="text-center my-5">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column my-5">
+  
+
+  <main role="main" class="inner cover my-5">
+    <h1 class="display-4 font-italic text-white">Welcome To DailyRumble</h1>
+    <br><br><br>
+    {% for text in texts %}
+    <p class="lead my-5 text-white">{{text.para1}}</p>
+    <p class="lead my-5 text-white">{{text.para2}}</p>
+    <p class="lead my-5 text-white">{{text.para3}}</p>
+    {% endfor %}
+    <p class="lead my-5">
+      <a href="/blog" class="btn btn-lg btn-secondary my-5">Read blogs</a>
+    </p>
+  </main>
+
+  
+</div>
+
+
+</body>
+
+{% endblock body %}

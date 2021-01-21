@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+
+body{
+    background:url('{% static 'img/1.jpg' %}') fixed center;
+    background-image: url('{% static 'img/1.jpg' %}');
+    width:100%;
+    background-size:100%;
+    background-attachment: fixed;
+    background-position: center;
+}
+@media (max-width:990px){
+    body{
+    background:url('{% static 'img/1.jpg' %}') fixed center;
+    background-image: url('{% static 'img/1.jpg' %}');
+    width:100%;
+    background-attachment: fixed;
+    background-position: center;
+    }
+} 
+
+        .navabar{
+          overflow: hidden;
+          position: fixed; /* Set the navbar to fixed position */
+          top: 0; /* Position the navbar at the top of the page */
+          width: 100%; /* Full width */
+          
+        }
+        .navbar li a {
+            padding: 3px 3px;
+            text-decoration: none;
+            color: white;
+            margin: 3px 3px;
+        }
+        .navbar li a:hover{
+            color: orange;
+
+        }
+        .navbar li a:ctive{
+            color: orange;
+
+        }
+        
+        .navbar-brand{
+          padding: 3px 3px;
+            text-decoration: none;
+            color: white;
+            margin: 3px 3px;
+        }
+        .navbar-brand a{
+          color: orange;
+        }
+
+        .navbar-toggler-icon{
+          color:white;
+        }
+        
+    
+{% endblock css %}
+
+{% block body %}
+<div class="container my-5  mx-auto">
+<div class="container my-5 py-10 mx-auto">
+  <h1 class="display-4 font-italic text-white">Search Results</h1>
+  {% if blogs|length < 1 %}
+  <p class="text-white">No Search Results:</p>
+  <p class="text-white">Your search: <b>{{query}}</b>-did not match any document</p><br>
+  <p class="text-white"><b>Suggestions:</b></p>
+    <ul>
+    <li class="text-white">Try different keywords</li>
+    </ul>
+    {% endif %}
+    </div>
+    {% for blog in blogs %}
+
+    
+        <div class="container">
+<div class="jumbotron p-4 p-md-5 text-white rounded bg-transparent">
+    <div class="col-md-6 px-0">
+    <p class="lead my-3 text-info"><strong>Articles by <a href="/about">{{blog.author}}</a></strong></p>
+      <h1 class="display-4 font-italic">{{blog.title}}</h1>
+      <p class="lead my-3 text-white">{{blog.content|truncatechars:200|safe}}</p>
+      <p class="lead mb-0"><a href="/blog/blogpost/{{blog.slug}}" class="text-white font-weight-bold">Continue reading...</a></p>
+    </div>
+  </div>
+  </div>
+
+    {% endfor %}
+</div>
+{% endblock body %}

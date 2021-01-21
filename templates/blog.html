@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+<meta name="description" content= "this is the blog!!!">
+<meta name= "keywords" content = "politics, business, raita, kuchbhi">
+<meta name= "author" content = "mera nam">
+
+{% endblock meta %}
+{% block css %}
+
+body{
+    background:url('{% static 'img/1.jpg' %}') fixed center;
+    background-image: url('{% static 'img/1.jpg' %}');
+    width:100%;
+    background-size:100%;
+    background-attachment: fixed;
+    background-position: center;
+}
+@media (max-width:990px){
+    body{
+    background:url('{% static 'img/1.jpg' %}') fixed center;
+    background-image: url('{% static 'img/1.jpg' %}');
+    width:100%;
+    background-attachment: fixed;
+    background-position: center;
+    }
+} 
+
+
+.navabar{
+
+position: fixed; /* Set the navbar to fixed position */
+top: 0; /* Position the navbar at the top of the page */
+width: 100%; /* Full width */
+
+}
+.navbar li a {
+padding: 3px 3px;
+text-decoration: none;
+color: white;
+margin: 3px 3px;
+}
+.navbar li a:hover{
+color: orange;
+
+}
+.navbar li a:ctive{
+color: orange;
+
+}
+
+.navbar-brand{
+padding: 3px 3px;
+text-decoration: none;
+color: white;
+margin: 3px 3px;
+}
+.navbar-brand a{
+color: orange;
+}
+
+.navbar-toggler-icon{
+color:white;
+}
+
+{% endblock css %}
+
+
+{% block body %}
+<div class="container my-5 mx-auto">
+
+    {% for blog in blogs %}
+
+    
+        {% comment %} <div class="row mb-2">
+            <div class="col-md-6">
+                <div
+                    class="row no-gutters border rounded overflow-hidden flex-md-row mb-2 mt-20 shadow-sm h-md-250 position-relative">
+                    <div class="col p-2 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-info">Articles by <a href="/about">{{blog.author}}</a></strong>
+                        <strong>
+                            <h2 class="mb-0 text-white"></h2>
+                        </strong>
+                        <div class="mb-1 text-muted">{{blog.datetime}}</div>
+                        <p class="mb-auto text-white"></p>
+                        <a href="" class="btn btn-primary">Continue reading</a>
+                    </div>
+                    <div>
+                        <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb"
+                            alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="/media/{{blog.image}}"
+                            data-holder-rendered="true">
+
+                    </div>
+                </div>
+            </div>
+        
+
+    </div> {% endcomment %}
+
+<div class="container">
+<div class="jumbotron p-4 p-md-5 text-white rounded bg-transparent">
+    <div class="col-md-6 px-0">
+    <p class="lead my-3 text-info"><strong>Articles by <a href="/about">{{blog.author}}</a></strong></p>
+      <h1 class="display-4 font-italic"><a href="blogpost/{{blog.slug}}">{{blog.title}}</a></h1>
+      <p class="lead my-3 text-white">{{blog.content|truncatechars:200|safe}}</p>
+      <br>
+      <p class="lead mb-0"><a href="blogpost/{{blog.slug}}" class="text-white font-weight-bold">Continue reading...</a></p>
+    </div>
+  </div>
+  </div>
+    {% endfor %}
+</div>
+{% endblock body %}
