@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Categories {% endblock title %}
+{% block css %}
+
+
+body{
+  background:url('{% static 'img/1.jpg' %}') fixed center;
+  background-image: url('{% static 'img/1.jpg' %}');
+  width:100%;
+  background-size:100%;
+  background-attachment: fixed;
+  background-position: center;
+}
+@media (max-width:990px){
+  body{
+  background:url('{% static 'img/1.jpg' %}') fixed center;
+  background-image: url('{% static 'img/1.jpg' %}');
+  width:100%;
+  background-attachment: fixed;
+  background-position: center;
+  }
+} 
+
+        .navabar{
+          overflow: hidden;
+          position: fixed; /* Set the navbar to fixed position */
+          top: 0; /* Position the navbar at the top of the page */
+          width: 100%; /* Full width */
+          
+        }
+        
+        .navbar li a:hover{
+            color: orange;
+
+        }
+        .navbar li a:ctive{
+            color: orange;
+
+        }
+        
+        .navbar-brand{
+          padding: 3px 3px;
+            text-decoration: none;
+            color: white;
+            margin: 3px 3px;
+        }
+        .navbar-brand a{
+          color: orange;
+        }
+
+
+
+{% endblock css %}
+
+{% block body %}
+
+<div class="container-tags my-24 ">
+
+    {% for tag in tags %}
+    <button type="button" class="btn btn-outline-info btn-lg my-3 mx-5"><a href="{{tag}}">{{tag}}</a></button>
+    {% endfor %}
+
+</div>
+
+{% endblock body %}
+
+

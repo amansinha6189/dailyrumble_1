@@ -19,42 +19,32 @@ body{
     background-position: center;
     }
 } 
+ .navabar{
+          overflow: hidden;
+          position: fixed; /* Set the navbar to fixed position */
+          top: 0; /* Position the navbar at the top of the page */
+          width: 100%; /* Full width */
+          
+        }
+        
+        .navbar li a:hover{
+            color: orange;
 
-.navabar{
-overflow: hidden;
-position: fixed; /* Set the navbar to fixed position */
-top: 0; /* Position the navbar at the top of the page */
-width: 100%; /* Full width */
+        }
+        .navbar li a:ctive{
+            color: orange;
 
-}
-.navbar li a {
-padding: 3px 3px;
-text-decoration: none;
-color: white;
-margin: 3px 3px;
-}
-.navbar li a:hover{
-color: orange;
-
-}
-.navbar li a:ctive{
-color: orange;
-
-}
-
-.navbar-brand{
-padding: 3px 3px;
-text-decoration: none;
-color: white;
-margin: 3px 3px;
-}
-.navbar-brand a{
-color: orange;
-}
-
-.navbar-toggler-icon{
-color:white;
-}
+        }
+        
+        .navbar-brand{
+          padding: 3px 3px;
+            text-decoration: none;
+            color: white;
+            margin: 3px 3px;
+        }
+        .navbar-brand a{
+          color: orange;
+        }
 
 
 {% endblock css %}
@@ -91,7 +81,7 @@ color:white;
 
             <textarea class="form-control" placeholder="Message" id="desc" name="content" rows="4"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" >Submit</button>
+          <button type="submit" class="btn btn-info" >Submit</button>
         </form>
       </div>
 

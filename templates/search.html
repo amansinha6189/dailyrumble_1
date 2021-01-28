@@ -28,12 +28,7 @@ body{
           width: 100%; /* Full width */
           
         }
-        .navbar li a {
-            padding: 3px 3px;
-            text-decoration: none;
-            color: white;
-            margin: 3px 3px;
-        }
+        
         .navbar li a:hover{
             color: orange;
 
@@ -53,16 +48,13 @@ body{
           color: orange;
         }
 
-        .navbar-toggler-icon{
-          color:white;
-        }
         
     
 {% endblock css %}
 
 {% block body %}
 <div class="container my-5  mx-auto">
-<div class="container my-5 py-10 mx-auto">
+<div class="container my-5 py-10 ">
   <h1 class="display-4 font-italic text-white">Search Results</h1>
   {% if blogs|length < 1 %}
   <p class="text-white">No Search Results:</p>

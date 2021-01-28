@@ -25,7 +25,8 @@ class Blog(models.Model):
     slug = models.CharField(max_length=150)
     time = models.DateTimeField(auto_now_add=True)
     author = models.CharField(max_length=100)
-    tags = models.ManyToManyField(Tag)
+    tag = models.ManyToManyField(Tag, null = True)
+    tag_specification = models.CharField(max_length=200, null =True)
     meta_description = models.CharField(max_length=160, null=True)
     meta_keywords = models.CharField(max_length=500, null=True)
     

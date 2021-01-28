@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Blogs {% endblock title %}
+{% block css %}
+
+body{
+    background:url('{% static 'img/1.jpg' %}') fixed center;
+    background-image: url('{% static 'img/1.jpg' %}');
+    width:100%;
+    background-size:100%;
+    background-attachment: fixed;
+    background-position: center;
+}
+@media (max-width:990px){
+    body{
+    background:url('{% static 'img/1.jpg' %}') fixed center;
+    background-image: url('{% static 'img/1.jpg' %}');
+    width:100%;
+    background-attachment: fixed;
+    background-position: center;
+    }
+} 
+
+ .navabar{
+          overflow: hidden;
+          position: fixed; /* Set the navbar to fixed position */
+          top: 0; /* Position the navbar at the top of the page */
+          width: 100%; /* Full width */
+          
+        }
+        
+        .navbar li a:hover{
+            color: orange;
+
+        }
+        .navbar li a:ctive{
+            color: orange;
+
+        }
+        
+        .navbar-brand{
+          padding: 3px 3px;
+            text-decoration: none;
+            color: white;
+            margin: 3px 3px;
+        }
+        .navbar-brand a{
+          color: orange;
+        }
+
+
+{% endblock css %}
+
+
+{% block body %}
+<div class="container my-24 mx-auto">
+
+{% if category_blogs %}
+    <h1 class="display-4 font-italic text-white">{{cats}} </h1>
+
+{% for blog in category_blogs %}
+
+    <div class="container">
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-transparent">
+        <div class="col-md-6 px-0">
+        <p class="lead my-3 text-info"><strong>Articles by <a href="/about">{{blog.author}}</a></strong></p>
+        <h1 class="display-4 font-italic"><a href="/blog/blogpost/{{blog.slug}}">{{blog.title}}</a></h1> 
+        <p class="lead my-3 text-white">{{blog.content|truncatechars:200|safe}}</p>
+        <br>
+        <p class="lead mb-0"><a href="/blog/blogpost/{{blog.slug}}" class="text-white font-weight-bold">Continue reading...</a></p>
+        </div>
+    </div>
+    </div>
+{% endfor %}
+{% else %}
+ <h1 class="display-4 font-italic text-white">No Results</h1>
+
+    <p class="text-white">Your category: <b>{{cats}}</b>-did not match any document</p><br>
+
+
+{% endif %}
+    
+
+</div>
+{% endblock body %}

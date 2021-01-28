@@ -16,11 +16,17 @@
     <meta name= "author" content = "{{blog.author}}">
    
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/359f0d9154.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
     <title>dailyrumble | Blog | {{blog.title}}</title>
    
    
@@ -49,41 +55,33 @@
     }
 } 
 
-.navabar{
-{% comment %} overflow: hidden; {% endcomment %}
-position: fixed; /* Set the navbar to fixed position */
-top: 0; /* Position the navbar at the top of the page */
-width: 100%; /* Full width */
+ .navabar{
+          overflow: hidden;
+          position: fixed; /* Set the navbar to fixed position */
+          top: 0; /* Position the navbar at the top of the page */
+          width: 100%; /* Full width */
+          
+        }
+        
+        .navbar li a:hover{
+            color: orange;
 
-}
-.navbar li a {
-padding: 3px 3px;
-text-decoration: none;
-color: white;
-margin: 3px 3px;
-}
-.navbar li a:hover{
-color: orange;
+        }
+        .navbar li a:ctive{
+            color: orange;
 
-}
-.navbar li a:ctive{
-color: orange;
+        }
+        
+        .navbar-brand{
+          padding: 3px 3px;
+            text-decoration: none;
+            color: white;
+            margin: 3px 3px;
+        }
+        .navbar-brand a{
+          color: orange;
+        }
 
-}
-
-.navbar-brand{
-padding: 3px 3px;
-text-decoration: none;
-color: white;
-margin: 3px 3px;
-}
-.navbar-brand a{
-color: orange;
-}
-
-.navbar-toggler-icon{
-color:white;
-}
 .leading-relaxed{
 font-color:white;
 }
@@ -92,19 +90,7 @@ font-color:white;
 width:80%;
 height:80%;
 }
-.comment_image{
-  width:100%
-}
-.reply_image{
-  width:75%
-}
-@media (max-width:750px){
-  .comment_image{
-    width:35%
-  }
-  .reply_image{
-    width:25%
-  }
+
   /* .comment{
     display: flex;
     flex-direction: row;
@@ -134,16 +120,19 @@ height:80%;
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item {% block homeactive %} {% endblock homeactive %}">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">HOME<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item {% block aboutactive %} {% endblock aboutactive %}">
-                        <a class="nav-link" href="/about">About</a>
+                        <a class="nav-link" href="/about">ABOUT AUTHOR</a>
                     </li>
                     <li class="nav-item {% block blogactive %} {% endblock blogactive %}">
-                        <a class="nav-link" href="/blog">Blog</a>
+                        <a class="nav-link" href="/blog">BLOGS</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/category">READS</a>
                     </li>
                     <li class="nav-item {% block contactactive %} {% endblock contactactive %}">
-                        <a class="nav-link" href="/contact">Contact Us</a>
+                        <a class="nav-link" href="/contact">CONTACT US</a>
                     </li>
                    
 
@@ -307,7 +296,7 @@ height:80%;
         <small>{{blog.datetime}}</small></h5>
 
       <div class="card-body">
-        <h1 class="display-4 font-italic text-white">{{blog.title}}</h1>
+        <h1 class="display-4 font-italic text-white">{{blog.title}}</h1> 
         <br>
         <p><img src="/media/{{blog.image}}" style="height:400px width:400px" alt="image" id="blogimage"> </p>
         <br><br><br>
@@ -332,7 +321,7 @@ height:80%;
             <input type="text" class="form-control" name="comment" placeholder="Enter comment here">
         </div>
         <input type="hidden" name="blogSno" value="{{blog.sno}}">
-        <button type="submit" class="btn btn-primary">Post</button>
+        <button type="submit" class="btn btn-info">Post</button>
     </form>
      {% else %}
     <h3 class="text-white"><b><b>Please login to post a comment </b></b></h3><br>
@@ -346,14 +335,14 @@ height:80%;
         <i class="far fa-user"></i>
         </div> {% endcomment %}
         <div class="col-md-11 text-white"> <i class="far fa-user"></i>
-        <b> {{comment.user.username}} </b> at {{comment.timestamp | naturaltime}}
+        <b> {{comment.user.username}} </b>  {{comment.timestamp | naturaltime}}
         {% comment %} <b> {{comment.user.username}} </b> at {{comment.timestamp}} {% endcomment %}
         <div class="col-md-11"  >   {{comment.comment}} </div>
       
 
         <div class = "reply my-2 col-md-11">
         {% if user.is_authenticated %}
-              <button class="btn btn-sm btn-primary " type="button" data-toggle="collapse" data-target="#replyBox{{comment.sno}}" aria-expanded="false" aria-controls="replyBox{{comment.sno}}">
+              <button class="btn btn-sm btn-info " type="button" data-toggle="collapse" data-target="#replyBox{{comment.sno}}" aria-expanded="false" aria-controls="replyBox{{comment.sno}}">
                     Reply
                 </button>
                 <div class="collapse " id="replyBox{{comment.sno}}">
@@ -362,11 +351,11 @@ height:80%;
                         <form action="/blogComment/" method="post">
                             {% csrf_token %}
                             <div class="form-group">
-                                <input type="text" class="form-control" name="comment" placeholder="Enter comment here">
+                                <input type="text" class="form-control" name="comment" placeholder="Enter Reply here">
                                 <input type="hidden" name="parentSno" value="{{comment.sno}}">
                             </div>
                             <input type="hidden" name="blogSno" value="{{blog.sno}}">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-info">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -411,6 +400,7 @@ height:80%;
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60055ed68ddcd573"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

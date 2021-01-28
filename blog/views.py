@@ -17,6 +17,11 @@ def home(request):
     texts = FrontPage.objects.all()
     params = {'texts':texts}
     return render(request, "home.html", params)
+
+
+def CategoryView(request, cats):
+    category_blogs = Blog.objects.filter(tag_specification = cats)
+    return render(request, "categories.html", {'cats':cats.title(), 'category_blogs': category_blogs})
     
 def about(request):
     abouts = About.objects.all()
@@ -29,11 +34,21 @@ def blog(request):
     context = {'blogs': blogs}
     return render(request, "blog.html", context)
 
+
+# class BlogView(ListView):
+#     model = Blog
+#     template_name = 'blog.html'
+#     cats = Tag.objects.all()
+#     ordering = ['-time']
+
+def category(request):
+    tags = Tag.objects.all()
+    data3 = {"tags": tags}
+    return render(request, "cat_menu.html", data3)
+
 def contact(request):
     socialContacts = SocialContact.objects.all()
     params1 = {'socialContacts':socialContacts}
-
-
 
     if request.method=="POST":
         name = request.POST['name']
@@ -62,11 +77,6 @@ def search(request):
     return render(request, "search.html", data1)
 
 
-def tag(request):
-    tags = Tag.objects.all()
-    print(tags)
-    data3 = {'tags':tags}
-    return render(request, "base.html", data3)
 
 def blogpost(request, slug):
     blog = Blog.objects.filter(slug=slug).first()

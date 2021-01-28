@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from blog import views
+from .views import CategoryView
 
 
 admin.site.site_header = "Hi Lakshay!! Welcome to DailyRumble"
@@ -31,6 +32,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path("blog/blogpost/<str:slug>/", views.blogpost, name='blogpost'),
+    path("category/", views.category, name= "cat_menu"),
+    path("category/<str:cats>/", CategoryView, name = 'category'),
     path('search/', views.search, name='search'),
     path('signup/', views.handleSignup, name='handleSignup'),
     path('user_login/', views.user_login, name='user_login'),
