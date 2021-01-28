@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'dailyrumble.wsgi.application'
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'DEMO_TEST',
 #         'USER': 'postgres',
-#         'PASSWORD': 'Aman@1729',
+#         'PASSWORD': '',
 #         'HOST' : 'localhost',
 #         'PORT': '5432',
 #     }
