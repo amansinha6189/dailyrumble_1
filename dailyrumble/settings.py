@@ -14,9 +14,9 @@ from pathlib import Path
 
 import os
 import django_heroku
-import dj_database_url
 from decouple import config
-
+import dj_database_url
+DATABASES = { 'default' : dj_database_url.config()}
 
 from django.contrib.messages import constants as messages
 
