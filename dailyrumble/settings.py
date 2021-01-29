@@ -148,7 +148,7 @@ STATICFILES_DIRS = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.Compressed.ManifestStaticFilesStorage'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+MEDIA_ROOT = BASE_DIR
 MEDIA_URL = '/media/'
 
 MESSAGE_TAGS = {
