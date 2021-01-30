@@ -298,7 +298,7 @@ height:80%;
       <div class="card-body">
         <h1 class="display-4 font-italic text-white">{{blog.title}}</h1> 
         <br>
-        <p><img src="/media/{{blog.image}}" style="height:400px width:400px" alt="image" id="blogimage"> </p>
+        <p><img src="{{blog.image_url}}" style="height:400px width:400px" alt="image" id="blogimage"> </p>
         <br><br><br>
 
         <p class="card-text text-white">{{blog.content|safe}}</p><br>

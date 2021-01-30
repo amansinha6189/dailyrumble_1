@@ -20,7 +20,8 @@ class SocialContact(models.Model):
 class Blog(models.Model):
     sno = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='blog/images', default="")
+    image_url = models.TextField(null=True)
+    # image = models.ImageField(upload_to='blog/images', default="")
     content = models.TextField()
     slug = models.CharField(max_length=150)
     time = models.DateTimeField(auto_now_add=True)
@@ -54,7 +55,8 @@ class FrontPage(models.Model):
 
 class About(models.Model):
     name = models.CharField(max_length=100)
-    author_image = models.ImageField(upload_to='blog/images', default="")
+    author_image_url = models.TextField(null=True)
+    # author_image = models.ImageField(upload_to='blog/images', default="")
     bio = models.CharField(max_length=150)
     para1 = models.TextField()
     para2 = models.TextField()
